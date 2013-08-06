@@ -1,10 +1,13 @@
 class AddressesController < ApplicationController
   before_action :set_address, only: [:show, :edit, :update, :destroy]
 
+  expose(:address)
+  expose(:addresses){ Address.all}
+
   # GET /addresses
   # GET /addresses.json
   def index
-    @addresses = Address.all
+    # @addresses = Address.all
   end
 
   # GET /addresses/1
@@ -69,6 +72,6 @@ class AddressesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def address_params
-      params[:address]
+      params.require(:address).permit(:line_1, :line_2, :city, :state, :zip_code)
     end
 end

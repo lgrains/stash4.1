@@ -1,4 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<div id="address_fields">
+  Address Line 1: <%= @address.line_1 %><br />
+  Address Line 2: <%= @address.line_2 %><br />
+  City : <%= @address.city %><br />
+  State: <%= @address.state %><br />
+  Zip Code: <%= @address.zip_code %><br />
+</div>
+
 <%= link_to 'Edit', edit_address_path(@address) %> |
 <%= link_to 'Back', addresses_path %>

@@ -8,3 +8,22 @@ When(/^I enter the following address data:$/) do |table|
   end
 end
 
+Given(/^the users have the following addresses:$/) do |table|
+  # table is a Cucumber::Ast::Table
+  table.hashes.each do |hash|
+    email = hash.delete("email")
+    u_id = User.find_by_email(email).id
+    address = Fabricate(:address, hash )
+    address.user_id = u_id
+    address.save
+  end
+end
+
+Then(/^I should see$/) do |table|
+  # table is a Cucumber::Ast::Table
+  table.hashes.each do |hash|
+    hash.each do |key, value |
+      step %{I should see "#{value}"}
+    end
+  end
+end

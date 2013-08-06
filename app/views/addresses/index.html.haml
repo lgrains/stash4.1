@@ -1,25 +1,30 @@
-<h1>Listing addresses</h1>
+%h1 Listing addresses
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+%table
+  %thead
+    %tr
+      %th User
+      %th Type
+      %th Line 1
+      %th Line 2
+      %th City
+      %th State
+      %th Zipcode
+      %th
 
-  <tbody>
-    <% @addresses.each do |address| %>
-      <tr>
-        <td><%= link_to 'Show', address %></td>
-        <td><%= link_to 'Edit', edit_address_path(address) %></td>
-        <td><%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  %tbody
+    - addresses.each do |address|
+      %tr
+        %td= address.user.first_name + " " + address.user.last_name
+        %td= address.address_type
+        %td= address.line_1
+        %td= address.line_2
+        %td= address.city
+        %td= address.state
+        %td= address.zip_code
+        %td= link_to 'Show', address |
+        %td= link_to 'Edit', edit_address_path(address)
+        %td= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' }
+%br
 
-<br>
-
-<%= link_to 'New Address', new_address_path %>
+= link_to 'New Address', new_address_path

@@ -1,7 +1,7 @@
 class CreateListings < ActiveRecord::Migration
   def change
     create_table :listings do |t|
-      t.integer   :user_id, :null => false
+      t.integer   :user_id
       t.string    :status
       t.string    :image_url
       t.string    :description

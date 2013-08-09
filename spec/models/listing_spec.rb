@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Listing do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { Fabricate(:listing) }
+  it { should be_valid }
+
+  #associations
+  it { should respond_to :user }
 end

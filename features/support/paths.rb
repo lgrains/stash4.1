@@ -8,12 +8,10 @@ def path_to(page_name)
     '/signup'
   when /the login page/
     '/users/sign_in'
-  when /the new address page for "(.+)"/
-    new_address_path(User.find_by_email($1))
-  when /the addresses page/
-    addresses_path
-  when /the address page for "(.+)"/
-    address_path(Address.last)
+  when /the user show page for "(.+)"/
+    user_path(User.find_by_email($1).id)
+  when /the edit user page for "(.+)"/
+    edit_user_path(User.find_by_email($1))
 
   end
 

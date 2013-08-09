@@ -11,19 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130806165224) do
-
-  create_table "addresses", force: true do |t|
-    t.string   "address_type", default: "primary"
-    t.string   "line_1"
-    t.string   "line_2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip_code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
+ActiveRecord::Schema.define(version: 20130805173729) do
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
@@ -43,6 +31,11 @@ ActiveRecord::Schema.define(version: 20130806165224) do
     t.string   "last_name"
     t.string   "phone_number"
     t.boolean  "is_admin",               default: false
+    t.string   "line_1"
+    t.string   "line_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

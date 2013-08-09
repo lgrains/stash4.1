@@ -1,5 +1,4 @@
 Stash41::Application.routes.draw do
-  resources :addresses
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
@@ -8,9 +7,7 @@ Stash41::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources :users, :shallow => true do
-    resources :addresses
-  end
+  resources :users
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,57 @@
+#profile
+  %h2 Your Profile
+  #profile_container
+    %span
+      = link_to('Edit', edit_user_path)
+
+      .detail
+        %div
+          %span
+            First Name:
+          = @user.first_name
+
+        %div
+          %span
+            Last Name:
+          = @user.last_name
+
+        %div
+          %span
+            Email:
+          = @user.email
+
+        %div
+          %span
+            Address 1:
+          = @user.line_1
+
+        %div
+          %span
+            Address 2:
+          = @user.line_2
+
+        %div
+          %span
+            City:
+          = @user.city
+
+        %div
+          %span
+            State:
+          = @user.state
+
+        %div
+          %span
+            Zip Code
+          = @user.zip_code
+
+        %div
+          %span
+            Phone Number:
+          = @user.phone_number
+
+
+
+
+
+

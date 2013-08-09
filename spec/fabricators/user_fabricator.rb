@@ -1,4 +1,3 @@
-
 require 'faker'
 
 Fabricator(:user) do

@@ -6,4 +6,5 @@ describe Listing do
 
   #associations
   it { should respond_to :user }
+  it { should respond_to :colors }
 end

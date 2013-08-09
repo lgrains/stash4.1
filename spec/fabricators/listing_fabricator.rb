@@ -1,6 +1,4 @@
 
-require 'faker'
-
 Fabricator(:listing) do
   description "Thimbleberries"
   length 1.25

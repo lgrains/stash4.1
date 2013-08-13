@@ -1,37 +1,10 @@
-#auser_fields
-  %p
-    = f.label :first_name
-    %br
-    = f.text_field :first_name
-  %p
-    = f.label :last_name
-    %br
-    = f.text_field :last_name
-  %p
-    = f.label :email
-    %br
-    = f.text_field :email
-  %p
-    = f.label :line_1
-    %br
-    = f.text_field :line_1
-  %p
-    = f.label :line_2
-    %br
-    = f.text_field :line_2
-  %p
-    = f.label :city
-    %br
-    = f.text_field :city
-  %p
-    = f.label :state
-    %br
-    = subregion_select(:user, :state, Carmen::Country.coded('US'))
-  %p
-    = f.label :zip_code
-    %br
-    = f.text_field :zip_code
-  %p
-    = f.label :phone_number
-    %br
-    = f.text_field :phone_number
+#user_fields
+  = f.input :first_name, label: "First Name",input_html: { size: 35, maxlength: 30 }, error: false
+  = f.input :last_name, label: "Last Name",input_html: { size: 35, maxlength: 30 }, error: false
+  = f.input :email, label: "Email",input_html: { size: 35, maxlength: 30 }, error: false
+  = f.input :line_1, label: "Street Line 1"
+  = f.input :line_2, label: "Street Line 2"
+  = f.input :city, label: "City", input_html: { :size => 10 }, error: false
+  = f.input :state, label: "State", :collection => us_states, :include_blank => true, :error => false
+  = f.input :zip_code, label: "Zip Code",  input_html: { :size => 15 }, error: false
+  = f.input :phone_number, label: "Phone Number", input_html: { :size => 15 }, error: false

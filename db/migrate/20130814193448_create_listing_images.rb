@@ -6,6 +6,7 @@ class CreateListingImages < ActiveRecord::Migration
       t.string  :name
       t.string  :content_type
       t.binary  :data, limit: 2.megabyte
+      t.string  :description
 
       t.timestamps
     end

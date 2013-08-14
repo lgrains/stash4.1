@@ -1,0 +1,7 @@
+= simple_form_for(@listing_image) do |f|
+  = f.error_notification
+  .inputs
+    = f.file_field :image_file
+    = f.text_field :description
+  .actions
+    = f.button :submit

@@ -10,3 +10,21 @@
           %a.brand(href="/")
             = image_tag("block1.jpg", size: "50x50")
             %h1 Stash 'n' Share
+            - if current_user.present?
+              %ul.nav.pull-right
+                %li#account-links.dropdown
+                  %a{:href=> "#", :class => "dropdown-toggle", "data-toggle" => "dropdown" }
+                    = current_user.email
+                    %b.caret
+                  %ul.dropdown-menu
+                    %li= link_to "Inbox", "#"
+                    %li= link_to "Settings", "#"
+                    %li= link_to "My Account", "#"
+                %li.top-nav= link_to "Logout", "#", method: :delete
+            - else
+              %ul.nav.pull-right
+                %li.top-nav-stress
+                  %a{href: "#loginModal", "data-toggle" => "modal"}
+                    Log in
+                %li.top-nav-stress
+                  = link_to "Sign Up", "/register"

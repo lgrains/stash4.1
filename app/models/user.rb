@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :listings
 
   def full_name
-    first_name + ' ' + last_name
+    first_name + ' ' + last_name if first_name && last_name
   end
 
 end

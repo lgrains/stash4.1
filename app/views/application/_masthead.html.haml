@@ -20,11 +20,10 @@
                     %li= link_to "Inbox", "#"
                     %li= link_to "Settings", "#"
                     %li= link_to "My Account", "#"
-                %li.top-nav= link_to "Logout", "#", method: :delete
+                %li.top-nav= link_to "Logout", destroy_user_session_path, method: :delete
             - else
               %ul.nav.pull-right
                 %li.top-nav-stress
-                  %a{href: "#loginModal", "data-toggle" => "modal"}
-                    Log in
+                  = link_to "Log in", new_user_session_path
                 %li.top-nav-stress
-                  = link_to "Sign Up", "/register"
+                  = link_to "Sign Up", new_user_registration_path

@@ -6,5 +6,10 @@ describe Listing do
 
   #associations
   it { should respond_to :user }
-  it { should respond_to :colors }
+  it { should belong_to :user }
+
+  #validations
+  it { should validate_presence_of :length }
+  it { should validate_presence_of :width }
+
 end

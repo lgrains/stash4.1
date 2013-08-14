@@ -7,6 +7,7 @@ gem 'simple_form'
 gem 'country_select'
 
 gem 'pg'
+gem 'activerecord-postgres-hstore'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -39,13 +40,18 @@ group :development, :test do
     gem 'autotest-standalone'
     gem 'capybara'
     gem 'cucumber'
-    gem 'cucumber-rails'
+
     gem 'fabrication'
     gem 'faker'
     gem 'shoulda-matchers'
     gem 'database_cleaner'
     gem 'launchy'
 end
+
+group :test do
+    gem 'cucumber-rails'
+end
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -8,7 +8,7 @@ Feature: View user profile
 
   Scenario: edit profile
     When I go to the user show page for "quilter@example.com"
-    Then I should see the following "First Name, Last Name, Email"
+    Then I should see the following "Name, Email, Address 1, Address 2, City, State, Zip Code, Phone Number"
 
     When I follow "Edit"
     Then I should be on the edit user page for "quilter@example.com"

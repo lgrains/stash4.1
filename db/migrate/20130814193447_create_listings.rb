@@ -1,6 +1,6 @@
 class CreateListings < ActiveRecord::Migration
   def change
-    execute "create extension hstore"
+    # execute "create extension hstore"
     create_table :listings do |t|
       t.integer   :user_id
       t.string    :listing_type, default: 'offer'

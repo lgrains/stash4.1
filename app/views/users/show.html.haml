@@ -7,21 +7,16 @@
       .detail
         %div
           %span
-            First Name:
-          = @user.first_name
-
-        %div
-          %span
-            Last Name:
-          = @user.last_name
-
-        %div
-          %span
             Email:
           = @user.email
 
         %div
-          %span
+          %span.strong
+            Name:
+          = @user.full_name
+
+        %div
+          %span.address
             Address 1:
           = @user.line_1
 

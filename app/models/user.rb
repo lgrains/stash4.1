@@ -6,4 +6,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :listings
+
+  def full_name
+    first_name + ' ' + last_name
+  end
+
 end

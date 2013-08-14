@@ -1,5 +1,7 @@
 Stash41::Application.routes.draw do
 
+  resources :listing_images
+
   resources :colors
 
   resources :listings

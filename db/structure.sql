@@ -76,6 +76,41 @@ ALTER SEQUENCE colors_id_seq OWNED BY colors.id;
 
 
 --
+-- Name: listing_images; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE listing_images (
+    id integer NOT NULL,
+    listing_id integer,
+    original_filename character varying(255),
+    name character varying(255),
+    content_type character varying(255),
+    data bytea,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: listing_images_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE listing_images_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: listing_images_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE listing_images_id_seq OWNED BY listing_images.id;
+
+
+--
 -- Name: listings; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -185,6 +220,13 @@ ALTER TABLE ONLY colors ALTER COLUMN id SET DEFAULT nextval('colors_id_seq'::reg
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY listing_images ALTER COLUMN id SET DEFAULT nextval('listing_images_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY listings ALTER COLUMN id SET DEFAULT nextval('listings_id_seq'::regclass);
 
 
@@ -201,6 +243,14 @@ ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regcl
 
 ALTER TABLE ONLY colors
     ADD CONSTRAINT colors_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: listing_images_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY listing_images
+    ADD CONSTRAINT listing_images_pkey PRIMARY KEY (id);
 
 
 --
@@ -255,3 +305,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130809195852');
 INSERT INTO schema_migrations (version) VALUES ('20130814160636');
 
 INSERT INTO schema_migrations (version) VALUES ('20130814193447');
+
+INSERT INTO schema_migrations (version) VALUES ('20130814193448');

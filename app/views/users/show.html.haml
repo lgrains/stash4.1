@@ -2,48 +2,22 @@
   %h2 Your Profile
   #profile_container
     %span
+
+      = @user.full_name
+      %address
+        = @user.line_1 if @user.line_1
+        = @user.line_2 if @user_line_2
+        %br/
+        = @user.city_state_zip
+        %br/
+        = @user.phone_number
+
+      / = image_tag @user.avatar.url
+      / = image_tag @user.avatar.url(:medium)
+      = image_tag(@user.avatar.url(:thumb), id:'user_avatar', class: 'user_pix')
+
       = link_to('Edit', edit_user_path)
 
-      .detail
-        %div
-          %span
-            Email:
-          = @user.email
-
-        %div
-          %span.strong
-            Name:
-          = @user.full_name
-
-        %div
-          %span.address
-            Address 1:
-          = @user.line_1
-
-        %div
-          %span
-            Address 2:
-          = @user.line_2
-
-        %div
-          %span
-            City:
-          = @user.city
-
-        %div
-          %span
-            State:
-          = @user.state
-
-        %div
-          %span
-            Zip Code
-          = @user.zip_code
-
-        %div
-          %span
-            Phone Number:
-          = @user.phone_number
 
 
 

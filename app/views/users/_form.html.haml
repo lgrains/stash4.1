@@ -1,4 +1,4 @@
-= simple_form_for(@user) do |f|
+= simple_form_for @user, :html=>{ :multipart => true } do |f|
   - if @user.errors.any?
     #error_explanation
       %h2
@@ -8,6 +8,7 @@
           %li= msg
 
   = render :partial => "user_fields", :locals => {:f => f}
+
   = f.submit
   %span
     = link_to 'Cancel', :back

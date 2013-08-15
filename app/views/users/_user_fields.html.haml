@@ -8,3 +8,6 @@
   = f.input :state, label: "State", :collection => us_states, :include_blank => true, :error => false
   = f.input :zip_code, label: "Zip Code",  input_html: { :size => 15 }, error: false
   = f.input :phone_number, label: "Phone Number", input_html: { :size => 15 }, error: false
+
+  = image_tag @user.avatar.url(:thumb)
+  = f.file_field :avatar

@@ -4,11 +4,15 @@ class UsersController < ApplicationController
   # expose!(:user)
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find( params[:id] )
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = User.find( params[:id] )
+  end
+
+  def create
+    @user = User.create( params[:id] )
   end
 
 
@@ -31,7 +35,7 @@ class UsersController < ApplicationController
 
       # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email,:line_1, :line_2, :city, :state, :zip_code, :phone_number)
+      params.require(:user).permit(:first_name, :last_name, :email,:line_1, :line_2, :city, :state, :zip_code, :phone_number, :avatar)
     end
 
 end

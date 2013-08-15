@@ -2,8 +2,10 @@ Given(/^I am logged in as an admin$/) do
   Fabricate(:user, is_admin: true)
 end
 
-
-
+When /^I upload an image through the Edit form$/ do
+  step %{I attach the file "spec/fixtures/avatar1.jpg" to "user_avatar"}
+  step %{I press "Update User"}
+end
 
 When(/^I enter the following:$/) do |table|
   table.hashes.each do |hash|
@@ -17,8 +19,6 @@ When(/^I enter the following:$/) do |table|
     step %{I press "Update User"}
   end
 end
-
-
 
 Then(/^I should see the following "(.*?)"$/) do |arg_list|
   arg_array = arg_list.split(",")

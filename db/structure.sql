@@ -92,7 +92,11 @@ CREATE TABLE listings (
     colors character varying(255)[],
     properties hstore,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    photo_file_name character varying(255),
+    photo_content_type character varying(255),
+    photo_file_size integer,
+    photo_updated_at timestamp without time zone
 );
 
 
@@ -261,3 +265,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130814160636');
 INSERT INTO schema_migrations (version) VALUES ('20130814193447');
 
 INSERT INTO schema_migrations (version) VALUES ('20130814193449');
+
+INSERT INTO schema_migrations (version) VALUES ('20130815183017');

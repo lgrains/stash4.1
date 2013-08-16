@@ -9,5 +9,4 @@
   = f.input :zip_code, label: "Zip Code",  input_html: { :size => 15 }, error: false
   = f.input :phone_number, label: "Phone Number", input_html: { :size => 15 }, error: false
 
-  = image_tag @user.avatar.url(:thumb)
-  = f.file_field :avatar
+  = f.file_field :avatar, label: "Image"

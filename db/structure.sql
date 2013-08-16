@@ -159,7 +159,8 @@ CREATE TABLE users (
     avatar_file_name character varying(255),
     avatar_content_type character varying(255),
     avatar_file_size integer,
-    avatar_updated_at timestamp without time zone
+    avatar_updated_at timestamp without time zone,
+    avatar_url character varying(255)
 );
 
 
@@ -267,3 +268,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130814193447');
 INSERT INTO schema_migrations (version) VALUES ('20130814193449');
 
 INSERT INTO schema_migrations (version) VALUES ('20130815183017');
+
+INSERT INTO schema_migrations (version) VALUES ('20130816140252');

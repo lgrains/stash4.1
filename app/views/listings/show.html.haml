@@ -2,3 +2,32 @@
 = link_to 'Edit', edit_listing_path(@listing)
 |
 \#{link_to 'Back', listings_path}
+
+#listing_details
+  %h2
+    = @listing.name
+  #type
+    %strong Type:
+    = @listing.listing_type
+  %br/
+  #description
+    %strong Description:
+    = @listing.description
+  %br/
+  #length
+    %strong Length:
+    = @listing.length
+    = @listing.length_units
+  #width
+    %strong Width:
+    = @listing.width
+    = @listing.width_units
+  #price
+    %strong Price:
+    = @listing.price
+  #colors
+    %strong Colors:
+    = @listing.colors.join(", ")
+  #image
+    %strong Image:
+    = image_tag @listing.image_url

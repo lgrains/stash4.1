@@ -43,60 +43,26 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: colors; Type: TABLE; Schema: public; Owner: -; Tablespace: 
---
-
-CREATE TABLE colors (
-    id integer NOT NULL,
-    name character varying(255),
-    color_group character varying(255),
-    value character varying(255),
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
-);
-
-
---
--- Name: colors_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE colors_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: colors_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE colors_id_seq OWNED BY colors.id;
-
-
---
 -- Name: listings; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
 CREATE TABLE listings (
     id integer NOT NULL,
     user_id integer,
+    name character varying(255),
     listing_type character varying(255) DEFAULT 'offer'::character varying,
     status character varying(255),
-    image_url character varying(255),
     description character varying(255),
     length double precision,
+    length_units character varying(255),
     width double precision,
+    width_units character varying(255),
     price double precision,
     colors character varying(255)[],
     properties hstore,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    photo_file_name character varying(255),
-    photo_content_type character varying(255),
-    photo_file_size integer,
-    photo_updated_at timestamp without time zone
+    image character varying(255)
 );
 
 
@@ -160,7 +126,7 @@ CREATE TABLE users (
     avatar_content_type character varying(255),
     avatar_file_size integer,
     avatar_updated_at timestamp without time zone,
-    avatar_url character varying(255)
+    role character varying(255)
 );
 
 
@@ -187,13 +153,6 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY colors ALTER COLUMN id SET DEFAULT nextval('colors_id_seq'::regclass);
-
-
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
-
 ALTER TABLE ONLY listings ALTER COLUMN id SET DEFAULT nextval('listings_id_seq'::regclass);
 
 
@@ -202,14 +161,6 @@ ALTER TABLE ONLY listings ALTER COLUMN id SET DEFAULT nextval('listings_id_seq':
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
-
-
---
--- Name: colors_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
---
-
-ALTER TABLE ONLY colors
-    ADD CONSTRAINT colors_pkey PRIMARY KEY (id);
 
 
 --
@@ -267,6 +218,8 @@ INSERT INTO schema_migrations (version) VALUES ('20130814193447');
 
 INSERT INTO schema_migrations (version) VALUES ('20130814193449');
 
-INSERT INTO schema_migrations (version) VALUES ('20130815183017');
+INSERT INTO schema_migrations (version) VALUES ('20130816171615');
 
-INSERT INTO schema_migrations (version) VALUES ('20130816140252');
+INSERT INTO schema_migrations (version) VALUES ('20130816173529');
+
+INSERT INTO schema_migrations (version) VALUES ('20130826123152');

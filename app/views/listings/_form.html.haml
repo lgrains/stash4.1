@@ -1,4 +1,4 @@
-= simple_form_for(@listing) do |f|
+= simple_form_for(@listing, :html => {:multipart => true}) do |f|
   - if @listing.errors.any?
     #error_explanation
       %h2
@@ -7,5 +7,17 @@
       %ul
         - @listing.errors.full_messages.each do |msg|
           %li= msg
+
+  #listing_fields
+    = f.input :name, label: "Name"
+    = f.input :listing_type, collection: ["Offer","Request"], label: "Listing Type"
+    = f.input :description, label: "Description",input_html: { size: 35, maxlength: 30 }, error: false
+    = f.input :length, label: "Length",input_html: { size: 35, maxlength: 30 }, error: false
+    = f.input :length_units, collection: ["Yards", "Feet","Inches"], label: "Length Units"
+    = f.input :width, label: "Width",input_html: { size: 35, maxlength: 30 }, error: false
+    = f.input :width_units, collection: ["Yards", "Feet","Inches"], label: "Width Units"
+    = f.input :price, label: "Price",input_html: { size: 35, maxlength: 30 }, error: false
+    = f.input :colors, label: "Colors", input_html: { size: 35, maxlength: 30 }, error: false
+    = f.file_field :image, label: "Listing Picture"
   .actions
-    = f.submit
+    = f.button :submit

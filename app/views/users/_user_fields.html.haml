@@ -2,6 +2,8 @@
   = f.input :first_name, label: "First Name",input_html: { size: 35, maxlength: 30 }, error: false
   = f.input :last_name, label: "Last Name",input_html: { size: 35, maxlength: 30 }, error: false
   = f.input :email, label: "Email",input_html: { size: 35, maxlength: 30 }, error: false
+  / = f.collection_select :role, User::ROLES, :to_s, :humanize
+  = f.input :role, label: "Role", :collection => User::ROLES.to_s.humanize, :include_blank => true, :error => false,
   = f.input :line_1, label: "Street Line 1"
   = f.input :line_2, label: "Street Line 2"
   = f.input :city, label: "City", input_html: { :size => 10 }, error: false
@@ -9,4 +11,4 @@
   = f.input :zip_code, label: "Zip Code",  input_html: { :size => 15 }, error: false
   = f.input :phone_number, label: "Phone Number", input_html: { :size => 15 }, error: false
 
-  = f.file_field :avatar, label: "Image"
+  = f.input :avatar, as: :avatar

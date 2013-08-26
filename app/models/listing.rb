@@ -1,6 +1,7 @@
 class Listing < ActiveRecord::Base
   belongs_to :user
-  has_one :listing_image
+  # validates_presence_of :image
+  mount_uploader :image, ImageUploader
 
 
 end

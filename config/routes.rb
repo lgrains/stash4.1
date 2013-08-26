@@ -1,7 +1,5 @@
 Stash41::Application.routes.draw do
 
-  resources :colors
-
   resources :listings
 
   devise_for :users

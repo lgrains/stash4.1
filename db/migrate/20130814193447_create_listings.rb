@@ -3,12 +3,14 @@ class CreateListings < ActiveRecord::Migration
     # execute "create extension hstore"
     create_table :listings do |t|
       t.integer   :user_id
+      t.string    :name
       t.string    :listing_type, default: 'offer'
       t.string    :status
-      t.string    :image_url
       t.string    :description
       t.float     :length
+      t.string    :length_units
       t.float     :width
+      t.string    :width_units
       # t.boolean   :is_treated these will be included in properties
       # t.string    :treatment_method
       # t.string    :manufacturer

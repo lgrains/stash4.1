@@ -116,7 +116,6 @@ CREATE TABLE users (
     middle_initial character varying(255),
     last_name character varying(255),
     phone_number character varying(255),
-    is_admin boolean DEFAULT false,
     line_1 character varying(255),
     line_2 character varying(255),
     city character varying(255),
@@ -223,3 +222,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130816171615');
 INSERT INTO schema_migrations (version) VALUES ('20130816173529');
 
 INSERT INTO schema_migrations (version) VALUES ('20130826123152');
+
+INSERT INTO schema_migrations (version) VALUES ('20130826130903');

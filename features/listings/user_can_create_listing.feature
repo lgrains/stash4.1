@@ -11,3 +11,5 @@ Feature: As a registered user
     Then I should be on the listing show page for "My Listing"
     And I should see "Listing was successfully created."
 
+  Scenario: guest tries to create listing
+

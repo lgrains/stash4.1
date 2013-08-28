@@ -29,4 +29,16 @@ class User < ActiveRecord::Base
     city + ", " + state + " " + zip_code if city && state && zip_code
   end
 
+  def registered?
+    role == "registered"
+  end
+
+  def admin?
+    role == "admin"
+  end
+
+  def banned?
+    role == "banned"
+  end
+
 end

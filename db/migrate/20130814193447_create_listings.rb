@@ -5,7 +5,7 @@ class CreateListings < ActiveRecord::Migration
       t.integer   :user_id
       t.string    :name
       t.string    :listing_type, default: 'offer'
-      t.string    :status
+      t.string    :status         # active, pending, exchanged, closed
       t.string    :description
       t.float     :length
       t.string    :length_units

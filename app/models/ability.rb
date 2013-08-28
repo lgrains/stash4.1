@@ -7,7 +7,7 @@ class Ability
       user ||= User.new # guest user (not logged in)
       if user.admin?
         can :manage, :all
-    elsif user.registered_user?
+    elsif user.registered?
         # user can manage any of their active listings
         can :manage, Listing, :user_id => user.id
       else

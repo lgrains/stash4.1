@@ -3,7 +3,6 @@ Given /^I am not logged in$/ do
 end
 
 Given /^I am logged in as "([^\"]*)"$/ do |user_email|
-
   user = User.find_by_email(user_email) || Fabricate(:user, :email => user_email)
   login(user)
 end

@@ -10,9 +10,8 @@ gem 'pg'
 gem 'activerecord-postgres-hstore'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+
+
 gem 'pry'
 gem 'pry-debugger'
 gem 'decent_exposure'
@@ -21,6 +20,14 @@ gem 'haml-rails'
 gem 'paperclip'
 gem 'carrierwave'
 gem 'cancan'
+
+gem 'therubyracer'
+gem 'less-rails'
+# gem 'sass-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails'
+
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

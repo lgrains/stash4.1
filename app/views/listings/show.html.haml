@@ -1,33 +1,61 @@
-%p#notice= notice
-= link_to 'Edit', edit_listing_path(@listing)
-|
-\#{link_to 'Back', listings_path}
+- model_class = Listing
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
 
-#listing_details
-  %h2
-    = @listing.name
-  #type
-    %strong Type:
-    = @listing.listing_type
-  %br/
-  #description
-    %strong Description:
-    = @listing.description
-  %br/
-  #length
-    %strong Length:
-    = @listing.length
-    = @listing.length_units
-  #width
-    %strong Width:
-    = @listing.width
-    = @listing.width_units
-  #price
-    %strong Price:
-    = @listing.price
-  #colors
-    %strong Colors:
-    = @listing.colors.join(", ")
-  #image
-    %strong Image:
-    = image_tag @listing.image_url
+%p
+  %strong= model_class.human_attribute_name(:user_id) + ':'
+  %br
+  = @listing.user_id
+%p
+  %strong= model_class.human_attribute_name(:name) + ':'
+  %br
+  = @listing.name
+%p
+  %strong= model_class.human_attribute_name(:listing_type) + ':'
+  %br
+  = @listing.listing_type
+%p
+  %strong= model_class.human_attribute_name(:status) + ':'
+  %br
+  = @listing.status
+%p
+  %strong= model_class.human_attribute_name(:description) + ':'
+  %br
+  = @listing.description
+%p
+  %strong= model_class.human_attribute_name(:length) + ':'
+  %br
+  = @listing.length
+%p
+  %strong= model_class.human_attribute_name(:length_units) + ':'
+  %br
+  = @listing.length_units
+%p
+  %strong= model_class.human_attribute_name(:width) + ':'
+  %br
+  = @listing.width
+%p
+  %strong= model_class.human_attribute_name(:width_units) + ':'
+  %br
+  = @listing.width_units
+%p
+  %strong= model_class.human_attribute_name(:price) + ':'
+  %br
+  = @listing.price
+%p
+  %strong= model_class.human_attribute_name(:colors) + ':'
+  %br
+  = @listing.colors
+%p
+  %strong= model_class.human_attribute_name(:properties) + ':'
+  %br
+  = @listing.properties
+%p
+  %strong= model_class.human_attribute_name(:image) + ':'
+  %br
+  = @listing.image
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), listings_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_listing_path(@listing), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), listing_path(@listing), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
